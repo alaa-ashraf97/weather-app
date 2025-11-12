@@ -1,0 +1,154 @@
+/* Limit viewport height to 100vh */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  height: 100vh;
+  max-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  transition: background .5s ease;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+/* Navbar blur effect */
+.navbar {
+  backdrop-filter: blur(8px);
+  font-size: 16px;
+}
+
+/* Rounded search bar */
+.input-group {
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.input-group button {
+  border-radius: 0 50px 50px 0;
+}
+
+/* Card style: smaller to prevent overflow */
+.card {
+  border-radius: 15px;
+  box-shadow: 0 8px 20px #0000004d;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.85rem;
+  color: #000000c0;
+  position: relative;
+  background: rgba(255, 255, 255, 0.53);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+  transition: transform 0.1s ease;
+  margin: auto;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* Weather Animation Overlay */
+#weatherAnimation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Animations (sun, rain, snow, fog, stars) */
+.sunflare {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,224,0.8) 0%, rgba(255,255,224,0) 70%);
+  top: 20%;
+  left: 75%;
+  animation: flare 2s ease-in-out infinite alternate;
+}
+
+/* Keyframes for sun flare */
+@keyframes flare {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+  100% { transform: scale(1.2) rotate(45deg); opacity: 1; }
+}
+
+.rain {
+  position: absolute;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  top: -20px;
+  animation: rainFall 1s linear infinite;
+}
+
+@keyframes rainFall {
+  0% { top: -20px; }
+  100% { top: 100%; }
+}
+
+.snow {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  top: -10px;
+  animation: snowFall 2s linear infinite;
+}
+
+@keyframes snowFall {
+  0% { transform: translateX(0) translateY(0); opacity: 0.9; }
+  100% { transform: translateX(30px) translateY(100vh); opacity: 0; }
+}
+
+.fog {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  top: 0;
+  left: -50%;
+  animation: fogMove 2s linear infinite;
+}
+
+@keyframes fogMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+.stars {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* Responsive cards smaller on mobile */
+@media(max-width:768px) {
+  .card {
+    font-size: 0.8rem;
+    padding: 12px;
+  }
+}
+img, svg {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    vertical-align: middle;
+}
