@@ -34,14 +34,14 @@ function initiateSearch() {
 // Set background image by condition or temperature keyword
 function setBackground(condition) {
   const images = {
-    hot: "../images/hot.jpg",
-    cold: "../images/cold.jpg",
-    sunny: "../images/sunny.jpg",
-    cloudy: "../images/cloudy.jpg",
-    rain: "../images/rainy.jpg",
-    snow: "../images/cold.jpg",
-    fog: "../images/foggy.jpg",
-    night: "../images/night.jpg",
+    hot: "./images/hot.jpg",
+    cold: "./images/cold.jpg",
+    sunny: "./images/sunny.jpg",
+    cloudy: "./images/cloudy.jpg",
+    rain: "./images/rainy.jpg",
+    snow: "./images/cold.jpg",
+    fog: "./images/foggy.jpg",
+    night: "./images/night.jpg",
   };
 
   if (condition.includes("hot"))
